@@ -4,7 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using ApiPerson.Services.Implementations;
+using ApiPerson.Business;
+using ApiPerson.Business.Implementations;
+using ApiPerson.Repository;
+using ApiPerson.Repository.Implementations;
 using ApiPeson.Models.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,7 +28,8 @@ namespace ApiPeson
             services.AddControllers();
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
-            services.AddScoped<IPersonService, PersonServiceImplemetation>();
+            services.AddScoped<IPersonBusiness, PersonBusinessImplemetation>();
+            services.AddScoped<IPersonRepository, PersonRepositoryImplemetation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

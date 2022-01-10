@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "auVMYX17KMT0Y2p6aJBd4U6jJrnaVtb5aFOXEQnJhwXQUhZCC8tj7NLxxS9h68mZUtB27IerK5WvqHX+8mMnpg==",
+  "dgSpecHash": "TZzzsaRii1TG0Q4LXLj5mRtoqWGLaVMHKtPE8E6OUdkkg2mh8LzzYpEDsR2nprHFOfW51fN70shxJu1jtUmYgw==",
   "success": true,
-  "projectFilePath": "D:\\VisualStudioCode\\Back-end\\dotnet\\ApiPeson\\ApiPeson\\ApiPeson.csproj",
+  "projectFilePath": "D:\\VisualStudioCode\\Back-end\\dotnet\\dotnet-ApiPerson\\ApiPeson\\ApiPeson\\ApiPeson.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\proha\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\proha\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
@@ -34,7 +34,8 @@
     "C:\\Users\\proha\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
     "C:\\Users\\proha\\.nuget\\packages\\system.collections.immutable\\1.7.1\\system.collections.immutable.1.7.1.nupkg.sha512",
     "C:\\Users\\proha\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
-    "C:\\Users\\proha\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+    "C:\\Users\\proha\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
+    "C:\\Users\\proha\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
   ],
   "logs": []
 }

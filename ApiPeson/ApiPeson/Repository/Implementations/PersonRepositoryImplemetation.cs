@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ApiPerson.Services.Implementations
+namespace ApiPerson.Repository.Implementations
 {
-    public class PersonServiceImplemetation : IPersonService
+    public class PersonRepositoryImplemetation : IPersonRepository
     {
         private MySQLContext context;
 
-        public PersonServiceImplemetation(MySQLContext context) 
+        public PersonRepositoryImplemetation(MySQLContext context) 
         {
             this.context = context;
         }
@@ -78,10 +78,7 @@ namespace ApiPerson.Services.Implementations
             }
 
         }                
-
-        
-
-        private bool Exists(long id) {
+        public  bool Exists(long id) {
             return this.context.Persons.Any(p =>p.Id.Equals(id));
         }
 

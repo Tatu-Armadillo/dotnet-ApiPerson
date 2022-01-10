@@ -1,9 +1,9 @@
 ﻿using ApiPerson.Models;
 using System.Collections.Generic;
 
-namespace ApiPerson.Services.Implementations
+namespace ApiPerson.Business
 {
-    public interface IPersonService
+    public interface IPersonBusiness
     {
         Person Create(Person person);
         Person FindById(long id);

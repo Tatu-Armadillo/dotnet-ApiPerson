@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -10,17 +11,22 @@ using ApiPerson.Repository;
 using ApiPerson.Repository.Implementations;
 using ApiPeson.Models.Context;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
+using System.Collections.Generic;
 
 namespace ApiPeson
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public IWebHostEnvironment Environment { get; }
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            Environment = environment;
+            Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -28,6 +34,12 @@ namespace ApiPeson
             services.AddControllers();
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
+
+            if (Environment.IsDevelopment())
+            {
+                MigrateDatabase(connection);
+            }
+
             services.AddScoped<IPersonServices, PersonServicesImplemetation>();
             services.AddScoped<IPersonRepository, PersonRepositoryImplemetation>();
         }
@@ -50,6 +62,24 @@ namespace ApiPeson
             {
                 endpoints.MapControllers();
             });
+        }
+        private void MigrateDatabase(string connection)
+        {
+            try
+            {
+                var envolveConnection = new MySql.Data.MySqlClient.MySqlConnection(connection);
+                var evolve = new Evolve.Evolve(envolveConnection, msg => Log.Information(msg))
+                {
+                    Locations = new List<string> { "db/migrations", "db/dataset" },
+                    IsEraseDisabled = true
+                };
+                evolve.Migrate();
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Database migration failed", ex);
+                throw;
+            }
         }
     }
 }

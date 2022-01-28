@@ -4,8 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using ApiPerson.Business;
-using ApiPerson.Business.Implementations;
+using ApiPerson.Services;
+using ApiPerson.Services.Implementations;
 using ApiPerson.Repository;
 using ApiPerson.Repository.Implementations;
 using ApiPeson.Models.Context;
@@ -28,7 +28,7 @@ namespace ApiPeson
             services.AddControllers();
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
-            services.AddScoped<IPersonBusiness, PersonBusinessImplemetation>();
+            services.AddScoped<IPersonServices, PersonServicesImplemetation>();
             services.AddScoped<IPersonRepository, PersonRepositoryImplemetation>();
         }
 

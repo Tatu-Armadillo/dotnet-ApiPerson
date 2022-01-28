@@ -2,13 +2,13 @@
 using ApiPerson.Repository;
 using System.Collections.Generic;
 
-namespace ApiPerson.Business.Implementations
+namespace ApiPerson.Services.Implementations
 {
-    public class PersonBusinessImplemetation : IPersonBusiness
+    public class PersonServicesImplemetation : IPersonServices
     {
         private readonly IPersonRepository repository;
 
-        public PersonBusinessImplemetation(IPersonRepository repository)
+        public PersonServicesImplemetation(IPersonRepository repository)
         {
             this.repository = repository;
         }

@@ -42,6 +42,8 @@ namespace ApiPeson
 
             services.AddScoped<IPersonServices, PersonServicesImplemetation>();
             services.AddScoped<IPersonRepository, PersonRepositoryImplemetation>();
+            services.AddScoped<IBookService, BookServicesImplemetation>();
+            services.AddScoped<IBookRepository, BookRepositoryImplemetation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
